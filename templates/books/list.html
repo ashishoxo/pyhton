@@ -1,0 +1,45 @@
+{% extends 'layout.html' %}
+{% block content %}
+<section class="section-container">
+   <!-- Page content-->
+   <div class="content-wrapper">
+      <div class="content-heading">
+         <div>Books<small data-localize="dashboard.WELCOME"></small></div><!-- START Language list-->
+         <!-- END Language list-->
+      </div>
+      <div class="card card-default">
+         <div class="card-body">
+            <table class="table table-striped my-4 w-100" id="datatable3">
+               <thead>
+                  <tr>
+                     <th data-priority="1">Id</th>
+                     <th>Cover</th>
+                     <th>Title</th>
+                     <th>Description</th>
+                     <th>Author</th>
+                     <th>ISBN</th>
+                     <th class="sort-numeric">Created at</th>
+                     <th class="sort-alpha" data-priority="2">Actions</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  {% for book in books %}
+                  <tr class="gradeX">
+                     <td>{{book.id}}</td>
+                     <td>{{book.cover}}</td>
+                     <td>{{book.title}}</td>
+                     <td>{{book.description}}</td>
+                     <td>{{book.author.name}}</td>
+                     <td>{{book.isbn}}</td>
+                     <td>{{book.created_at}}</td>
+                     <td>X</td>
+                  </tr>
+                  {% endfor %}
+               </tbody>
+            </table>
+         </div>
+      </div>
+      
+   </div>
+</section><!-- Page footer-->
+{% endblock %}

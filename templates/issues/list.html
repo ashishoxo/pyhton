@@ -1,0 +1,43 @@
+{% extends 'layout.html' %}
+{% block content %}
+<section class="section-container">
+   <!-- Page content-->
+   <div class="content-wrapper">
+      <div class="content-heading">
+         <div>Issued Books<small data-localize="dashboard.WELCOME"></small></div><!-- START Language list-->
+         <!-- END Language list-->
+      </div>
+      <div class="card card-default">
+         <div class="card-body">
+            <table class="table table-striped my-4 w-100" id="datatable3">
+               <thead>
+                  <tr>
+                     <th data-priority="1">Id</th>
+                     <th>Student name</th>
+                     <th>Book name</th>
+                     <th>Issued days</th>
+                     <th>Status</th>
+                     <th class="sort-numeric">Created at</th>
+                     <th class="sort-alpha" data-priority="2">Actions</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  {% for issue in issues %}
+                  <tr class="gradeX">
+                     <td>{{issue.id}}</td>
+                     <td>{{issue.student.name}}</td>
+                     <td>{{issue.book.title}}</td>
+                     <td>{{issue.days}}</td>
+                     <td>{{issue.status}}</td>
+                     <td>{{issue.created_at}}</td>
+                     <td>X</td>
+                  </tr>
+                  {% endfor %}
+               </tbody>
+            </table>
+         </div>
+      </div>
+      
+   </div>
+</section><!-- Page footer-->
+{% endblock %}
